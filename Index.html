@@ -1,0 +1,51 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data</title>
+<style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: url('https://media.giphy.com/media/JVvNVItg3I51n08Th2/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            animation: backgroundAnimation 10s linear infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                filter: brightness(100%);
+            }
+            50% {
+                filter: brightness(110%);
+            }
+            100% {
+                filter: brightness(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sensor Data</h1>
+    <table border="1">
+        <tr>
+            <th>Time</th>
+            <th>Sensor</th>
+            <th>Temperature (°C)</th>
+            <th>Humidity (%)</th>
+        </tr>
+        {% for data in sensor_data %}
+        <tr>
+            <td>{{ data['time'] }}</td>
+            <td>{{ data['sensor'] }}</td>
+            <td>{{ data['temperature'] }}</td>
+            <td>{{ data['humidity'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
